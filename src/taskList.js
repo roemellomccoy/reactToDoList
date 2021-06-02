@@ -29,8 +29,8 @@ class ToDoList extends React.Component {
     event.preventDefault();
     let lastCompleteIndex = event.target.parentElement.parentElement.firstChild.innerText
     console.log(lastCompleteIndex)
-    let newTaskArray = event.target.parentElement.innerText.slice(0, lastCompleteIndex)
-    let indexOfTask = this.state.tasks.indexOf(newTaskArray)
+    // let newTaskArray = event.target.parentElement.innerText.slice(0, lastCompleteIndex)
+    let indexOfTask = this.state.tasks.indexOf(lastCompleteIndex)
     this.setState({tasks: [...this.state.tasks.slice(0,indexOfTask), ...this.state.tasks.slice(indexOfTask+1)]})
   }
 

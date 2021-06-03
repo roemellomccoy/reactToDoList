@@ -4,6 +4,7 @@ import './index.css';
 import Username from './App';
 import ToDoList from './taskList'
 import reportWebVitals from './reportWebVitals';
+import Modal from 'react-modal';
 
 ReactDOM.render(
   <React.StrictMode>

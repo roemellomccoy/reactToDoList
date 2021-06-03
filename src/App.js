@@ -47,7 +47,7 @@ class Username extends React.Component {
             name="Username"
             ref={(input) => this.input = input}
           />
-          <button type="submit" class="headerButton">Submit</button>
+          <button type="submit" class="headerButton">Login</button>
         </form>
     </div>
     )

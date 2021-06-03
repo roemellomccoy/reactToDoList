@@ -1,5 +1,7 @@
 import './App.css';
 import React from 'react';
+import CategoryList from './Category.js'
+import Modal from 'react-modal';
 
 class ToDoList extends React.Component {
   constructor(){
@@ -17,17 +19,16 @@ class ToDoList extends React.Component {
       super.setState(state)
   }
 
-
   addTask(event) {
     event.preventDefault();
     this.setState({tasks: [...this.state.tasks, this.input.value]})
-
+    document.querySelector('.addForm').reset();
   }
 
   removeTask(event) {
     window.localStorage.removeItem('state')
     event.preventDefault();
-    let lastCompleteIndex = event.target.parentElement.parentElement.firstChild.innerText
+    let lastCompleteIndex = event.target.parentElement.parentElement.querySelector('.taskName').innerText
     console.log(lastCompleteIndex)
     // let newTaskArray = event.target.parentElement.innerText.slice(0, lastCompleteIndex)
     let indexOfTask = this.state.tasks.indexOf(lastCompleteIndex)
@@ -36,25 +37,26 @@ class ToDoList extends React.Component {
 
   completeAll() {
     this.setState({tasks: []})
-
   }
 
-
-
   render(){
-    let newTasks = this.state.tasks.map((task) => <tr><td class="taskName">{task}</td> <td class="taskButton"><button type="button" onClick={this.removeTask.bind(this)}>Complete!</button></td></tr>)
+    let newTasks = this.state.tasks.map((task) => <tr><td><CategoryList /></td><td class="taskName">{task}</td> <td class="taskButton"><button type="button" onClick={this.removeTask.bind(this)}>Complete!</button></td></tr>)
     return(
     <div className="App flex-app">
-      <form onSubmit = {this.addTask}>
+      <form class = "addForm" onSubmit = {this.addTask}>
         <label for="task">Task </label>
         <input
           type="text"
           name="task"
+          class="inputTask"
           ref={(input) => this.input = input}
         />
         <button type="submit">Add!</button>
-        <table>{newTasks}</table>
-      </form>
+        </form>
+        <table>
+          {newTasks}
+        </table>
+
 
       <button type="button" onClick={this.completeAll}>Complete All</button>
     </div>

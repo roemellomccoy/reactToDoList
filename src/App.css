@@ -1,3 +1,7 @@
+html, body {
+  background-color: #61dafb;
+}
+
 .App {
   text-align: center;
   background-color: #61dafb;
@@ -19,6 +23,20 @@
 }
 
 input{
+  padding: 5px;
+     font-size: 16px;
+     border-width: 1px;
+     border-color: #CCCCCC;
+     background-color: #FFFFFF;
+     color: #000000;
+     border-style: solid;
+     border-radius: 0px;
+     box-shadow: 0px 0px 5px rgba(66,66,66,.75);
+     position: relative;
+     top: -.5vh;
+}
+
+select{
   padding: 5px;
      font-size: 16px;
      border-width: 1px;
@@ -88,7 +106,7 @@ td {
 }
 
 .taskName {
-  text-align: left;
+  text-align: center;
   padding-left: 40px;
 }
 
